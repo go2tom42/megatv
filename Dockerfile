@@ -31,6 +31,7 @@ RUN apk add --no-cache bash busybox-suid su-exec
 
 # Volumes
 VOLUME /config
+VOLUME /guide2go
 VOLUME /root/.xteve
 VOLUME /tmp/xteve
 
@@ -41,13 +42,14 @@ RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
 
 # Add xTeve and guide2go
 COPY --from=build /tmp/xTeVe/xteve /usr/bin
+ADD guide2go /usr/bin/guide2go
 ADD cronjob.sh /
 ADD entrypoint.sh /
 ADD sample_cron.txt /
 ADD sample_xteve.txt /
 
 # Set executable permissions
-RUN chmod +x /entrypoint.sh /cronjob.sh /usr/bin/xteve
+RUN chmod +x /entrypoint.sh /cronjob.sh /usr/bin/xteve /usr/bin/guide2go
 
 # Expose Port
 EXPOSE 34400
