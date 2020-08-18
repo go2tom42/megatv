@@ -1,4 +1,8 @@
-printf '45  04  *  *  *  /config/cronjob.sh' > /etc/crontabs/root
+echo "# Crontab" > /etc/crontabs/root
+echo "0 0 * * 1 /guide2go/Monday.sh" >> /etc/crontabs/root
+echo "0 0 * * 2 /guide2go/Tuesday.sh" >> /etc/crontabs/root
+echo "0 0 * * 3 /guide2go/Wednesday.sh" >> /etc/crontabs/root
+echo "0 0 * * 4 /guide2go/Thrusday.sh" >> /etc/crontabs/root
 ### remove from here including this line ###
 ### edit your cron time
 ### rename to cron.txt
