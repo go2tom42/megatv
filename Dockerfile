@@ -6,7 +6,7 @@ RUN go get github.com/gorilla/websocket
 RUN go get github.com/kardianos/osext
 RUN git clone https://github.com/xteve-project/xTeVe.git /tmp/xTeVe
 WORKDIR /tmp/xTeVe
-RUN sed -i 's/System.DVRLimit = 480/System.DVRLimit = 850/' /tmp/xTeVe/src/config.go
+RUN sed -i 's/System.DVRLimit = 480/System.DVRLimit = 950/' /tmp/xTeVe/src/config.go
 RUN apk add --no-cache gcc musl-dev
 RUN go build xteve.go
 
