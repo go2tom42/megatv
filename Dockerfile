@@ -7,6 +7,8 @@ RUN go get github.com/kardianos/osext
 RUN git clone https://github.com/xteve-project/xTeVe.git /tmp/xTeVe
 WORKDIR /tmp/xTeVe
 RUN sed -i 's/System.DVRLimit = 480/System.DVRLimit = 950/' /tmp/xTeVe/src/config.go
+RUN sed -i 's/System.PlexChannelLimit = 480/System.PlexChannelLimit = 950/' /tmp/xTeVe/src/config.go
+RUN sed -i 's/System.UnfilteredChannelLimit = 480/System.UnfilteredChannelLimit = 950/' /tmp/xTeVe/src/config.go
 RUN apk add --no-cache gcc musl-dev
 RUN go build xteve.go
 
