@@ -1,4 +1,4 @@
-FROM alpine:latest as build
+FROM alpine:latest as build2
 RUN apk add --no-cache go
 RUN apk add --no-cache git
 RUN go get github.com/koron/go-ssdp
