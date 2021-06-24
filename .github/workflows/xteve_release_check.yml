@@ -19,6 +19,7 @@ jobs:
       - name: Commit latest release version
         if: steps.git-check.outputs.modified == 'true'
         run: |
+          git add release-versions/xteve-latest.txt
           git config --global user.name 'go2tom42'
           git config --global user.email 'go2tom42@users.noreply.github.com'
           git commit -am "New release version"
