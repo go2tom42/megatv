@@ -18,26 +18,7 @@ RUN apk add --no-cache git
 RUN git clone https://github.com/mar-mei/guide2go.git /tmp/guide2go
 WORKDIR /tmp/guide2go
 RUN apk add --no-cache gcc musl-dev
-RUN go build xteve.go
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+RUN go build guide2go
 
 FROM alpine:latest
 RUN apk update
@@ -70,7 +51,7 @@ RUN sed -i 's/geteuid/getppid/' /usr/bin/vlc
 
 # Add xTeve and guide2go
 COPY --from=build /tmp/xTeVe/xteve /usr/bin
-ADD guide2go /usr/bin/guide2go
+COPY --from=build2 /tmp/guide2go/guide2go /usr/bin
 ADD cronjob.sh /
 ADD entrypoint.sh /
 ADD sample_cron.txt /
